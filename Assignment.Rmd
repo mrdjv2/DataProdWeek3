@@ -1,0 +1,41 @@
+---
+title: "Stock indices"
+author: "Daniel Jungen"
+date: "15 Februar 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an overview over some market indeces.
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+setwd("D://coursera//data products")
+library(plotly)
+
+dax<-read.csv("DAX.csv", header = TRUE)
+dax<-dax[dax[,2]!= "null",5]
+dax<-data.frame(as.numeric(as.character(dax)))
+pdax<-plot_ly(dax)
+
+
+mdax<-read.csv("MDAX.csv", header = TRUE)
+mdax<-mdax[mdax[,2]!= "null",5]
+mdax<-data.frame(as.numeric(as.character(mdax)))
+pmdax<-plot_ly(mdax)
+
+dj<-read.csv("DJ.csv", header = TRUE)
+dj<-dj[dj[,2]!= "null",5]
+dj<-data.frame(as.numeric(as.character(dj)))
+pdj<-plot_ly(dj)
+
+nasdaq<-read.csv("NASDAQ.csv", header = TRUE)
+nasdaq<-nasdaq[nasdaq[,2]!= "null",5]
+nasdaq<-data.frame(as.numeric(as.character(nasdaq)))
+pnasdaq<-plot_ly(nasdaq)
+
+```
